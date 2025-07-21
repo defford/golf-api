@@ -1,6 +1,7 @@
 package com.golfclub.tournaments;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.time.LocalDateTime;
@@ -21,21 +22,29 @@ public class TournamentModel {
     private Long id;
     
     @Column(nullable = false)
+    @NotBlank(message = "Tournament name is required")
+    @Size(min = 3, max = 100, message = "Tournament name must be between 3 and 100 characters")
     private String name;
     
     @Column(name = "start_date")
+    @NotNull(message = "Start date is required")
     private LocalDateTime startDate;
     
     @Column(name = "end_date")
     private LocalDateTime endDate;
     
+    @NotBlank(message = "Location is required")
+    @Size(max = 100, message = "Location must not exceed 100 characters")
     private String location;
+    @Size(max = 500, message = "Description must not exceed 500 characters")
     private String description;
     
     @Column(name = "entry_fee")
+    @DecimalMin(value = "0.0", inclusive = true, message = "Entry fee must be non-negative")
     private Double entryFee;
     
     @Column(name = "cash_prize_amount")
+    @DecimalMin(value = "0.0", inclusive = true, message = "Cash prize amount must be non-negative")
     private Double cashPrizeAmount;
     
     @Column(name = "created_at")
