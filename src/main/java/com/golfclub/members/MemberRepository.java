@@ -19,6 +19,6 @@ public interface MemberRepository extends JpaRepository<MemberModel, Long> {
     @Query("SELECT m FROM MemberModel m JOIN m.tournaments t WHERE t.startDate >= :startDate")
     List<MemberModel> findByTournamentStartDateAfter(@Param("startDate") LocalDateTime startDate);
     
-    @Query("SELECT m FROM MemberModel m JOIN m.tournaments t WHERE DATE(t.startDate) = DATE(:startDate)")
+    @Query("SELECT m FROM MemberModel m JOIN m.tournaments t WHERE CAST(t.startDate AS date) = CAST(:startDate AS date)")
     List<MemberModel> findByTournamentStartDate(@Param("startDate") LocalDateTime startDate);
 }
