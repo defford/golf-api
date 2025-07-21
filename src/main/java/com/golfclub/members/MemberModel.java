@@ -32,15 +32,18 @@ public class MemberModel {
     private String phone;
     private String address;
     
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    @Column(name = "start_date")
+    private LocalDateTime startDate;
+    
+    @Column(name = "duration_of_membership")
+    private String durationOfMembership;
     
     @Enumerated(EnumType.STRING)
     @Column(name = "membership_type")
     private MembershipType membershipType;
     
-    @Column(name = "duration_of_membership")
-    private String durationOfMembership;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
     
     @ManyToMany(mappedBy = "members")
     @JsonIgnoreProperties("members")
