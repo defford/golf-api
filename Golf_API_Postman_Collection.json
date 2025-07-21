@@ -1,0 +1,253 @@
+{
+  "info": {
+    "name": "Golf API",
+    "description": "Complete API testing collection for Golf Club Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Members",
+      "item": [
+        {
+          "name": "Get All Members",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/members",
+              "host": ["{{baseUrl}}"],
+              "path": ["members"]
+            }
+          }
+        },
+        {
+          "name": "Get Member by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/members/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["members", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Member",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"John Doe\",\n    \"address\": \"123 Main Street, Golf City\",\n    \"email\": \"john.doe@email.com\",\n    \"phoneNumber\": \"555-0123\",\n    \"startDate\": \"2024-01-15T10:00:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/members",
+              "host": ["{{baseUrl}}"],
+              "path": ["members"]
+            }
+          }
+        },
+        {
+          "name": "Update Member",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"John Smith\",\n    \"address\": \"456 Oak Avenue, Golf City\",\n    \"email\": \"john.smith@email.com\",\n    \"phoneNumber\": \"555-0456\",\n    \"startDate\": \"2024-01-15T10:00:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/members/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["members", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Member",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/members/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["members", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tournaments",
+      "item": [
+        {
+          "name": "Get All Tournaments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tournaments",
+              "host": ["{{baseUrl}}"],
+              "path": ["tournaments"]
+            }
+          }
+        },
+        {
+          "name": "Get Tournament by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tournaments/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["tournaments", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Tournament",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"tournamentName\": \"Spring Championship\",\n    \"startDate\": \"2024-04-15T08:00:00\",\n    \"endDate\": \"2024-04-17T18:00:00\",\n    \"location\": \"Augusta Golf Course\",\n    \"entryFee\": 150.00,\n    \"cashPrizeAmount\": 5000.00\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tournaments",
+              "host": ["{{baseUrl}}"],
+              "path": ["tournaments"]
+            }
+          }
+        },
+        {
+          "name": "Update Tournament",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"tournamentName\": \"Spring Championship 2024\",\n    \"startDate\": \"2024-04-15T08:00:00\",\n    \"endDate\": \"2024-04-17T18:00:00\",\n    \"location\": \"Augusta National Golf Course\",\n    \"entryFee\": 200.00,\n    \"cashPrizeAmount\": 7500.00\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tournaments/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["tournaments", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Tournament",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tournaments/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["tournaments", "1"]
+            }
+          }
+        },
+        {
+          "name": "Search Tournaments by Date",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tournaments/search?startDate=2024-04-15",
+              "host": ["{{baseUrl}}"],
+              "path": ["tournaments", "search"],
+              "query": [
+                {
+                  "key": "startDate",
+                  "value": "2024-04-15"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Member-Tournament Relationships",
+      "item": [
+        {
+          "name": "Add Member to Tournament",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/members/1/tournaments/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["members", "1", "tournaments", "1"]
+            }
+          }
+        },
+        {
+          "name": "Remove Member from Tournament",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/members/1/tournaments/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["members", "1", "tournaments", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Member's Tournaments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/members/1/tournaments",
+              "host": ["{{baseUrl}}"],
+              "path": ["members", "1", "tournaments"]
+            }
+          }
+        },
+        {
+          "name": "Get Tournament Participants",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tournaments/1/members",
+              "host": ["{{baseUrl}}"],
+              "path": ["tournaments", "1", "members"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}
