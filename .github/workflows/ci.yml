@@ -2,7 +2,7 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [ main, setup/initial-golf-api ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
