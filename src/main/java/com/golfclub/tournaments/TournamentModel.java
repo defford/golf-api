@@ -26,8 +26,17 @@ public class TournamentModel {
     @Column(name = "start_date")
     private LocalDateTime startDate;
     
+    @Column(name = "end_date")
+    private LocalDateTime endDate;
+    
     private String location;
     private String description;
+    
+    @Column(name = "entry_fee")
+    private Double entryFee;
+    
+    @Column(name = "cash_prize_amount")
+    private Double cashPrizeAmount;
     
     @Column(name = "created_at")
     private LocalDateTime createdAt;
