@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Repository
 public interface TournamentRepository extends JpaRepository<TournamentModel, Long> {
     
-    @Query("SELECT t FROM TournamentModel t WHERE DATE(t.startDate) = DATE(:startDate)")
+    @Query("SELECT t FROM TournamentModel t WHERE CAST(t.startDate AS date) = CAST(:startDate AS date)")
     List<TournamentModel> findByStartDate(@Param("startDate") LocalDateTime startDate);
     
     @Query("SELECT t FROM TournamentModel t WHERE t.startDate >= :startDate")
