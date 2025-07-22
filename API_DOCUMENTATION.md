@@ -37,7 +37,7 @@ POST /members
     "name": "John Doe",
     "address": "123 Main St",
     "email": "john@example.com",
-    "phoneNumber": "555-0123",
+    "phone": "555-0123",
     "startDate": "2024-01-15T10:00:00"
 }
 ```
@@ -79,7 +79,7 @@ POST /tournaments
 **Request Body:**
 ```json
 {
-    "tournamentName": "Spring Championship",
+    "name": "Spring Championship",
     "startDate": "2024-04-15T08:00:00",
     "endDate": "2024-04-17T18:00:00",
     "location": "Augusta Golf Course",
@@ -151,7 +151,7 @@ GET /tournaments/{tournamentId}/members
     "name": "John Doe",
     "address": "123 Main St",
     "email": "john@example.com",
-    "phoneNumber": "555-0123",
+    "phone": "555-0123",
     "startDate": "2024-01-15T10:00:00",
     "tournaments": []
 }
@@ -161,7 +161,7 @@ GET /tournaments/{tournamentId}/members
 ```json
 {
     "id": 1,
-    "tournamentName": "Spring Championship",
+    "name": "Spring Championship",
     "startDate": "2024-04-15T08:00:00",
     "endDate": "2024-04-17T18:00:00",
     "location": "Augusta Golf Course",

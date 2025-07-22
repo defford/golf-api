@@ -103,6 +103,7 @@ public class TournamentControllerTest {
         TournamentModel updatedTournament = new TournamentModel();
         updatedTournament.setId(1L);
         updatedTournament.setName("Summer Championship");
+        updatedTournament.setStartDate(LocalDateTime.of(2024, 6, 15, 10, 0));
         updatedTournament.setLocation("Oak Hill Golf Club");
 
         when(tournamentService.getTournamentById(1L)).thenReturn(testTournament);

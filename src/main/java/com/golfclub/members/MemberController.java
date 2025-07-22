@@ -3,13 +3,14 @@ package com.golfclub.members;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @RestController
 @RequestMapping("/api/members")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080", "https://golfclub.com"})
 public class MemberController {
 
     @Autowired
@@ -27,12 +28,12 @@ public class MemberController {
     }
 
     @PostMapping
-    public MemberModel createMember(@RequestBody MemberModel member) {
+    public MemberModel createMember(@Valid @RequestBody MemberModel member) {
         return memberService.saveMember(member);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MemberModel> updateMember(@PathVariable Long id, @RequestBody MemberModel member) {
+    public ResponseEntity<MemberModel> updateMember(@PathVariable Long id, @Valid @RequestBody MemberModel member) {
         MemberModel existingMember = memberService.getMemberById(id);
         if (existingMember == null) {
             return ResponseEntity.notFound().build();

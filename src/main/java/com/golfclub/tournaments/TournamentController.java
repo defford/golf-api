@@ -4,13 +4,14 @@ import com.golfclub.members.MemberModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Set;
 import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/tournaments")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080", "https://golfclub.com"})
 public class TournamentController {
 
     @Autowired
@@ -28,12 +29,12 @@ public class TournamentController {
     }
 
     @PostMapping
-    public TournamentModel createTournament(@RequestBody TournamentModel tournament) {
+    public TournamentModel createTournament(@Valid @RequestBody TournamentModel tournament) {
         return tournamentService.saveTournament(tournament);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TournamentModel> updateTournament(@PathVariable Long id, @RequestBody TournamentModel tournament) {
+    public ResponseEntity<TournamentModel> updateTournament(@PathVariable Long id, @Valid @RequestBody TournamentModel tournament) {
         TournamentModel existingTournament = tournamentService.getTournamentById(id);
         if (existingTournament == null) {
             return ResponseEntity.notFound().build();
